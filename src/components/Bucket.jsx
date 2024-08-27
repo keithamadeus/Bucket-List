@@ -31,20 +31,21 @@ function Bucket(props) {
   }
 
   return props.bucket.map((item, index) => (
-    // TODO: Add a className of `bucket-row complete ${item.eagerness}` for completed items, and `bucket-row ${item.eagerness}` for non-completed items
-    // TODO: Add a key attribute set to the value of the index position
+    //  Add a className of `bucket-row complete ${item.eagerness}` for completed items, and `bucket-row ${item.eagerness}` for non-completed items
+    //  Add a key attribute set to the value of the index position
     // Hint: use a ternary operator
-    <div className={} key={}>
+    <div lassName={`bucket-row ${item.eagerness} ${item.completed ? 'complete' : ''}`} key={index}>
 
-      {/* TODO: Add an onClick event that invokes the `completeBucketItem` method passing the item id as a argument */}
-      <div key={} onClick={}>
-          {/* TODO: Add the item text here */}
+      {/*  Add an onClick event that invokes the `completeBucketItem` method passing the item id as a argument */}
+      <div key={index} onClick={() => props.completeBucketItem(item.id)}>
+          {/*  Add the item text here */}
+          {item.text}
       </div>
       <div className="icons">
-        {/* TODO: Add an onClick event update the `edit` object with the `id`, `value`, and `eagerness` properties */}
-        <p onClick={}> ✏️</p>
-        {/* TODO: Add an onClick event that will invoke the removeBucketItem method passing in the `item.id` */}
-        <p onClick={}> 🗑️</p>
+        {/*  Add an onClick event update the `edit` object with the `id`, `value`, and `eagerness` properties */}
+        <p onClick={() => setEdit({ id: item.id, value: item.text, eagerness: item.eagerness })}> ✏️</p>
+        {/*  Add an onClick event that will invoke the removeBucketItem method passing in the `item.id` */}
+        <p onClick={() => props.removeBucketItem(item.id)}> 🗑️</p>
       </div>
     </div>
   ));
