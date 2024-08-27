@@ -8,8 +8,8 @@ function BucketList() {
   // Function to add a bucket list item
   const addBucketItem = (item) => {
 
-    // TODO: Write logic to add the new bucket item to the bucket state variable
-    
+    // You can use the spread operator to add the new item to the existing array of items
+    setBucket([...bucket, item]);
   };
 
   // Function to mark bucket list item as complete
@@ -17,8 +17,15 @@ function BucketList() {
     // If the ID passed to this function matches the ID of the item that was clicked, mark it as complete
     let updatedBucket = bucket.map((item) => {
       
-      // TODO: Write logic that marks an item as complete or incomplete when invoked
-
+      //Write logic that marks an item as complete or incomplete when invoked
+      if (item.id === id) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      }
     });
 
     setBucket(updatedBucket);
@@ -27,9 +34,10 @@ function BucketList() {
   // Function to remove bucket list item and update state
   const removeBucketItem = (id) => {
     // TODO: Write logic that will return an array of items that don't contain the ID passed to this function
-
-
-    // TODO: Update the bucket state variable
+    if (window.confirm('Do you want to delete this item?')) {
+      setBucket(bucket.filter((item) => item.id !== id));
+    }
+    setBucket(updatedBucket);
   };
 
   // Function to edit the bucket list item

@@ -12,9 +12,16 @@ function Bucket(props) {
 
   const submitUpdate = (value) => {
 
-    // TODO: Write logic to call the editBucketItem prop with the supplied values
+    // Write logic to call the editBucketItem prop with the supplied values
+    // Hint: You will need to pass in the edit.id, value, and eagerness
+    props.editBucketItem(edit.id, value, edit.eagerness);
 
-    // TODO: Set the key:value pairs in the `edit` object back to empty strings
+    // Set the key:value pairs in the `edit` object back to empty strings
+    setEdit({
+      id: null,
+      value: '',
+      eagerness: '',
+    });
 
   };
 
